@@ -67,10 +67,7 @@ async function getEnvFromShell (env) {
     let stdout = ''
     let done = false
     const cleanup = () => {
-      if (done) {
-        return
-      }
-      if (childProcess) {
+      if (!done && childProcess) {
         childProcess.kill()
         done = true
       }
